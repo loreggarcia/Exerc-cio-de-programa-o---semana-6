@@ -225,7 +225,7 @@ Resposta = A variável "soma" não está declarada no escopo e em "soma = 2*nume
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
 
-**
+**Classe Produto:**
 ```javascript
 class Produto {
   constructor(nome, preco) {
