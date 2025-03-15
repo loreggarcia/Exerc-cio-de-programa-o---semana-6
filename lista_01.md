@@ -30,6 +30,7 @@ c) A saída será undefined seguido de undefined
 
 d) A saída será erro em ambas as linhas que utilizam console.log
 
+Resposta: A alternativa correta é a letra A, pois "var" apesar de permitir o acesso à variável antes de sua atribuição, retorna undefined. No caso do "let", o mesmo não permite o acesso antes da atribuição, gerando erro na saída.
 
 **2) O seguinte código JavaScript tem um erro que impede sua execução correta. Analise e indique a opção que melhor corrige o problema. Justifique sua resposta.**
 
@@ -51,6 +52,7 @@ c) Substituir if (a || b === 0) por if (a && b === 0)
 
 d) Remover completamente a verificação if (a || b === 0)
 
+Resposta: A alternativa correta é a letra A, pois apenas nessa alternativa um valor é atribuido para "a" e para "b" tendo a condição do código para a ou b com este valor
 ______
 **3) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
 ```javascript
@@ -84,6 +86,8 @@ c) O código imprime 50.
 
 d) O código gera um erro.
 
+Resposta = A alternativa correta é a letra B, pois não há break em "eletrônico"", o que define o valor de preco como 200, pois o fluxo passa pelo case "vestuário" e o break impede que a execução continue nos outros casos.
+
 ______
 **4) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
 ```javascript
@@ -100,6 +104,8 @@ b) 6
 c) 18
 
 d) 24
+
+Resposta: Pois, os valores do array serão multiplicados, e o novo array ficará [2, 4, 6, 8, 10], depois será filtrados os valores maiores que 5, restando 6, 8, 10, depois esses valores são somados e a saída do código será 24.
 ______
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
@@ -117,6 +123,8 @@ c) ["banana", "abacaxi", "manga", "laranja"]
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
 ______
+Resposta: A resposta correta é a letra C. Em um array os elementos começam em 0 e são ordenados progressivamente, ou seja: [0, 1, 2, ..., n]. Ainda sabendo que o método splice() modifica o array original e recebe três parâmetros: por onde o índice começa a alteração (1 neste caso), quantos elementos remover (2 neste caso) e elementos a adicionar ("abacaxi" e "manga" neste caso). Sendo assim, eliminasse "maça" e "uva" e adicionasse "abacaxi" e "manga" na lista.
+
 **6) Abaixo há duas afirmações sobre herança em JavaScript. Indique a alternativa correta e justifique sua resposta**
 
 I. A herança é utilizada para compartilhar métodos e propriedades entre classes em JavaScript, permitindo que uma classe herde os métodos de outra sem a necessidade de repetir código.  
@@ -131,6 +139,8 @@ c) A primeira afirmação é verdadeira, e a segunda é falsa.
 
 d) A primeira afirmação é falsa, e a segunda é verdadeira.
 ______
+Resposta= A resposta correta é a letra A. A segunda afirmação explica como a herança funciona em JavaScript, e justifica a primeira pois explica o compartilhamento de métodos e propriedades entre classes.
+
 **7) Dado o seguinte código. Indique a alternativa correta e justifique sua resposta.**
 
 ```javascript
@@ -173,6 +183,7 @@ c) Apenas II é verdadeira.
 
 d) Apenas I é verdadeira.
 
+Resposta = A alterartiva correta é a letra A. Porque as duas primeiras questões estão corretas, a terceira, porém, é falsa, pois, o JavaScript suporta herança de classes usando a palavra-chave extends, como mostrado no código.
 ______
 
 **8) Analise as afirmações a seguir. Indique a alternativa correta e justifique sua resposta.**
@@ -188,6 +199,7 @@ c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explic
 
 d) A asserção é verdadeira e a razão é verdadeira, e a razão explica a asserção.
 
+Resposta = A alternativa B é a correta, pois, condiz com o conceito de polimorfismo, todavia, a razão está errada, pois o javascript não suporta sobrecarga de método. 
 ______
 
 # Questões dissertativas
@@ -202,11 +214,42 @@ function somaArray(numeros) {
     return soma;
 }
 console.log(somaArray([1, 2, 3, 4]));
+  
 ```
-______
+Resposta = A variável "soma" não está declarada no escopo e em "soma = 2*numeros[i]" está faltando "++", pois do modo como está no código apenas a primeira variável será considerada para soma.
+
 10) Crie um exemplo prático no qual você tenha duas classes:
 
 - Uma classe `Produto` com atributos `nome` e `preco`, e um método `calcularDesconto()` que aplica um desconto fixo de 10% no preço do produto.
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
+
+**
+```javascript
+class Produto {
+  constructor(nome, preco) {
+    this.nome = nome;
+    this.preco = preco;
+  }
+
+  calcularDesconto() {
+    return this.preco - this.preco * 0.1;
+  }
+}
+
+```
+**Classe Livro:**
+```javascript
+class Livro extends Produto {
+  constructor(nome, preco) {
+    super(nome, preco);
+  }
+
+  calcularDesconto() {
+    return this.preco - this.preco * 0.2;
+  }
+}
+```
+
+Resposta: A classe Livro herda os métodos e atributos da classe Produto. Isso significa que um objeto da classe Livro também terá os atributos nome e preço, além do método para calcular desconto. No entanto, a classe Livro redefine a lógica do método calcularDesconto da classe Produto, de forma que, em vez de aplicar um abatimento de 10%, concede um desconto de 20%.
